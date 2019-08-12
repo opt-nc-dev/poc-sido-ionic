@@ -9,8 +9,6 @@ import {Platform} from '@ionic/angular';
     templateUrl: './tab-offline-mode.component.html',
     styleUrls: ['./tab-offline-mode.component.scss']
 })
-const API_STORAGE_KEY = 'specialkey';
-
 export class TabOfflineModeComponent implements OnInit {
 
     signatures: any[];
