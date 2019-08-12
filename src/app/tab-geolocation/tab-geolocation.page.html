@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+
+            <ion-button color="primary"> Me geolocaliser</ion-button>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div style="position: relative;     height: 50%!important; width: 100%">
+        <opt-esri-map #map [parentMapPoints]="points" basemaps="opt-internet-1012,gouvnc-imagerie"
+                      basemapToggle="bottom-right" center="449788,215216" scale="50000"></opt-esri-map>
+    </div>
+    <ion-card class="welcome-card">
+
+        <ion-card-header>
+            <ion-card-subtitle>Geolocalisation</ion-card-subtitle>
+            <ion-card-title>Ma position est {{latitude}} / {{longitude}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Now that your app has been created, you'll want to start building out features and components. Check out
+                some of the resources below for next steps.</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

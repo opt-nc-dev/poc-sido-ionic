@@ -1,0 +1,198 @@
+:host {
+    //    position: relative;
+    //
+    //    /deep/ .esri-view-surface {
+    //        outline: none !important;
+    //    }
+    //
+    /deep/ opt-esri-map {
+        display: inline;
+    }
+}
+//
+//    /deep/ .esri-zoom .esri-widget--button {
+//        color: #ffffff;
+//        background-color: orange;
+//    }
+//
+//    /deep/ .esri-attribution {
+//        display: none;
+//    }
+//
+//    // don't display the default loader
+//    /deep/ .opt-map-loading {
+//        display: none;
+//    }
+//
+//    /deep/ .esri-view {
+//        display: inline-flex;
+//        border: none;
+//    }
+//
+//    /deep/ .esri-popup__feature-menu-button {
+//        display: none !important;
+//    }
+//
+//    /deep/ .esri-popup--aligned-top-center {
+//        margin-bottom: 35px;
+//    }
+//
+//    .btn,
+//    .btn:active,
+//    .btn:focus {
+//        box-shadow: none;
+//        background-color: orange;
+//        border-color: orange;
+//        color: #ffffff;
+//        position: absolute;
+//        bottom: 1rem;
+//        left: 1rem;
+//        padding: 0.5rem 1rem;
+//        font-size: 1.2rem;
+//        font-weight: 400;
+//    }
+//
+//    .btn i.fa.fa-expand,
+//    .btn i.fa.fa-reduce {
+//        vertical-align: middle;
+//    }
+//
+//    .fa-expand:before {
+//        display: inline-block;
+//        width: 16px;
+//        height: 16px;
+//    }
+//
+//    .fa-reduce:before {
+//        display: inline-block;
+//        width: 16px;
+//        height: 16px;
+//    }
+//
+//    /deep/ image:hover {
+//        cursor: pointer;
+//    }
+//
+//    /deep/ .bold {
+//        font-weight: bold;
+//    }
+//
+//    /deep/ .esri-popup__feature-buttons {
+//        & .esri-popup__action {
+//            margin-left: auto;
+//            margin-right: auto;
+//        }
+//    }
+//
+//    /deep/ .switch {
+//        margin-left: 10px;
+//        position: relative;
+//        display: inline-block;
+//        width: 60px;
+//        height: 34px;
+//        & input {
+//            opacity: 0;
+//            width: 0;
+//            height: 0;
+//        }
+//    }
+//
+//    /deep/ .acquitter {
+//        display: flex;
+//        align-items: center;
+//    }
+//
+//    /deep/ .slider {
+//        position: absolute;
+//        cursor: pointer;
+//        top: 0;
+//        left: 0;
+//        right: 0;
+//        bottom: 0;
+//        background-color: #ccc;
+//        -webkit-transition: 0.4s;
+//        transition: 0.4s;
+//        &:before {
+//            position: absolute;
+//            content: '';
+//            height: 26px;
+//            width: 26px;
+//            left: 4px;
+//            bottom: 4px;
+//            background-color: white;
+//            -webkit-transition: 0.4s;
+//            transition: 0.4s;
+//        }
+//    }
+//
+//    /deep/ input:checked + .slider {
+//        background-color: #2196f3;
+//    }
+//
+//    /deep/ input:focus + .slider {
+//        box-shadow: 0 0 1px #2196f3;
+//    }
+//
+//    /deep/ input:checked + .slider:before {
+//        -webkit-transform: translateX(26px);
+//        -ms-transform: translateX(26px);
+//        transform: translateX(26px);
+//    }
+//
+//    /* Rounded sliders */
+//    /deep/ .slider.round {
+//        border-radius: 34px;
+//    }
+//
+//    /deep/ .slider.round:before {
+//        border-radius: 50%;
+//    }
+//
+//    /deep/ .esri-popup__header-title {
+//        padding: 16px 0px 0px 14px !important;
+//    }
+//
+//    /deep/ .lienDossier {
+//        color: #ffffff;
+//        text-decoration: underline;
+//    }
+//
+//    /deep/ .esri-view-width-xlarge .esri-popup__main-container {
+//        width: 413px !important;
+//    }
+//
+//    /deep/ .esri-popup__header {
+//        background: #353d47;
+//        margin-bottom: 5px;
+//        color: #ffffff;
+//        padding-top: 0px !important;
+//        & .esri-popup__button {
+//            color: #ffffff;
+//            margin-top: 0px;
+//            padding: 17px 10px;
+//            &:hover {
+//                height: 100%;
+//                background: red;
+//            }
+//        }
+//        & .icone-header-popup {
+//            margin-right: 16px;
+//        }
+//    }
+//
+//    /deep/ .esri-popup__header-buttons {
+//        padding: 0;
+//    }
+//
+//    /deep/ .hr-btn-action {
+//        margin-top: 5px;
+//        margin-bottom: 0px;
+//        border-top: 1px solid #353d47;
+//    }
+//
+//    /deep/.esri-view-height-less-than-medium {
+//        & .esri-popup__main-container {
+//            max-height: 362px;
+//        }
+//    }
+//}
