@@ -44,7 +44,7 @@ export class TabSignaturePage {
         this.storage.set('savedSignature', this.signature);
         this.signaturePad.clear();
         const toast = await this.toastCtrl.create({
-            message: 'New Signature saved.',
+            message: 'Nouvelle signature enregistrée',
             duration: 3000
         });
         toast.present();
@@ -53,8 +53,6 @@ export class TabSignaturePage {
     clearPad() {
         this.signaturePad.clear();
     }
-
-
 
 
 }
