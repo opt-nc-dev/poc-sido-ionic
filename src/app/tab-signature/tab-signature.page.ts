@@ -2,6 +2,9 @@ import {Component, ViewChild} from '@angular/core';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {NavController, ToastController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
+import {NetworkService} from '../services/network.service';
+
+const API_STORAGE_KEY = 'specialkey';
 
 @Component({
     selector: 'app-tab3',
@@ -12,7 +15,10 @@ export class TabSignaturePage {
     signature = '';
     isDrawing = false;
 
-    constructor(public navController: NavController, public storage: Storage, public toastCtrl: ToastController) {
+    constructor(public navController: NavController,
+                public storage: Storage,
+                public toastCtrl: ToastController,
+                private networkService: NetworkService) {
     }
 
     @ViewChild(SignaturePad) signaturePad: SignaturePad;
@@ -48,10 +54,16 @@ export class TabSignaturePage {
             duration: 3000
         });
         toast.present();
+        this.setLocalData('signatures', this.signature);
     }
 
     clearPad() {
         this.signaturePad.clear();
+    }
+
+// Save result of API requests
+    private setLocalData(key, data) {
+        this.storage.set(`${API_STORAGE_KEY}-${key}`, data);
     }
 
 
