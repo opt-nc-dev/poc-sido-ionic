@@ -1,6 +1,11 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 import {MapPoints, OptEsriMapComponent} from 'opt-angular-esrimap';
+import {MAP_FIELDS} from './model/map.model';
+
+const RESULTS_MAP_POINTS = 'RESULTS';
+
+declare function require(path: string);
 
 @Component({
     selector: 'app-tab1',
@@ -43,6 +48,7 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.map.loaded.then(() => {
             this.initMap();
+            this.initPoint();
         });
     }
 
@@ -66,5 +72,28 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
                 event.stopPropagation();
             }
         });
+    }
+
+    initPoint() {
+        this.points = [
+            new MapPoints({
+                title: RESULTS_MAP_POINTS,
+                symbol: {
+                    type: 'picture-marker',
+                    url: require('../../assets/pin-orange.png'),
+                    width: '36px',
+                    height: '36px',
+                    yoffset: '18px'
+                },
+                fields: MAP_FIELDS.fields,
+                features: [{
+                    'latitude': this.latitude,
+                    'NOM': 'TOTO',
+                    'PRENOM': 'TATA',
+                    'id': 1,
+                    'longitude': this.longitude,
+                }]
+            })
+        ];
     }
 }
