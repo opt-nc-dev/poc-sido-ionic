@@ -31,6 +31,7 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
             if (data && data.coords) {
                 this.latitude = data.coords.latitude;
                 this.longitude = data.coords.longitude;
+                this.initPoint();
             }
         }).catch((error) => {
             console.log('Error getting location', error);
@@ -41,6 +42,7 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
             if (data && data.coords) {
                 this.latitude = data.coords.latitude;
                 this.longitude = data.coords.longitude;
+                this.initPoint();
             }
         });
     }
@@ -48,7 +50,6 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.map.loaded.then(() => {
             this.initMap();
-            this.initPoint();
         });
     }
 
@@ -75,6 +76,9 @@ export class TabGeolocationPage implements OnInit, AfterViewInit {
     }
 
     initPoint() {
+        console.log('lat:' + this.latitude);
+        console.log('long:' + this.longitude);
+
         this.points = [
             new MapPoints({
                 title: RESULTS_MAP_POINTS,
