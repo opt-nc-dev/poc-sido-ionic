@@ -35,15 +35,6 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'offline-mode',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: '../tab-offline-mode/tab-offline-mode.module#TabOfflineModeModule'
-                    }
-                ]
-            },
-            {
                 path: '',
                 redirectTo: '/tabs/geolocation',
                 pathMatch: 'full'

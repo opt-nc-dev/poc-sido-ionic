@@ -2,7 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {NavController, ToastController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-import {NetworkService} from '../services/network.service';
 
 const API_STORAGE_KEY = 'specialkey';
 
@@ -18,7 +17,7 @@ export class TabSignaturePage {
     constructor(public navController: NavController,
                 public storage: Storage,
                 public toastCtrl: ToastController,
-                private networkService: NetworkService) {
+    ) {
     }
 
     @ViewChild(SignaturePad) signaturePad: SignaturePad;
@@ -61,7 +60,6 @@ export class TabSignaturePage {
         this.signaturePad.clear();
     }
 
-// Save result of API requests
     private setLocalData(key, data) {
         this.storage.set(`${API_STORAGE_KEY}-${key}`, data);
     }
