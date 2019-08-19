@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PhotoService} from '../services/photo.service';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import {StorageService} from '../services/storage.service';
 
 @Component({
     selector: 'app-tab2',
@@ -8,10 +9,11 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
     styleUrls: ['tab-flash-code-barre.page.scss']
 })
 export class TabFlashCodeBarrePage implements OnInit {
-    currentImage: any;
+    codesBars: any;
 
     constructor(public photoService: PhotoService,
-                private barcodeScanner: BarcodeScanner) {
+                private barcodeScanner: BarcodeScanner,
+                private storageService: StorageService) {
     }
 
     ngOnInit() {
@@ -19,11 +21,28 @@ export class TabFlashCodeBarrePage implements OnInit {
         this.openBarCodeScanner();
     }
 
+    ionViewDidEnter() {
+        this.getCodeBarsStored();
+    }
+
     openBarCodeScanner() {
         this.barcodeScanner.scan().then(barcodeData => {
-            console.log('Barcode data', barcodeData);
+            const codeBarre = {
+                numCb: barcodeData.text,
+                dateScan: new Date()
+            };
+            console.log('Barcode data', codeBarre);
+            this.storageService.setLocalData('barcodeData', codeBarre).then(() => {
+                this.getCodeBarsStored();
+            });
         }).catch(err => {
             console.log('Error', err);
+        });
+    }
+
+    getCodeBarsStored() {
+        this.storageService.getLocalData('barcodeData').then((data) => {
+            this.codesBars = data;
         });
     }
 }
