@@ -2,8 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {NavController, ToastController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-
-const API_STORAGE_KEY = 'specialkey';
+import {StorageService} from '../services/storage.service';
 
 @Component({
     selector: 'app-tab3',
@@ -12,11 +11,13 @@ const API_STORAGE_KEY = 'specialkey';
 })
 export class TabSignaturePage {
     signature = '';
+    signatures: any = [];
     isDrawing = false;
 
     constructor(public navController: NavController,
                 public storage: Storage,
                 public toastCtrl: ToastController,
+                private storageService: StorageService
     ) {
     }
 
@@ -31,9 +32,7 @@ export class TabSignaturePage {
 
     ionViewDidEnter() {
         this.signaturePad.clear();
-        this.storage.get('savedSignature').then((data) => {
-            this.signature = data;
-        });
+        this.getSignaturesStored();
     }
 
     drawComplete() {
@@ -46,22 +45,29 @@ export class TabSignaturePage {
 
     async savePad() {
         this.signature = this.signaturePad.toDataURL();
-        this.storage.set('savedSignature', this.signature);
         this.signaturePad.clear();
         const toast = await this.toastCtrl.create({
             message: 'Nouvelle signature enregistrée',
             duration: 3000
         });
         toast.present();
-        this.setLocalData('signatures', this.signature);
+        const signatureObject = {
+            signature: this.signature,
+            date: new Date()
+        };
+        this.storageService.setLocalData('signatures', signatureObject).then((data) => {
+            this.getSignaturesStored();
+        });
     }
 
     clearPad() {
         this.signaturePad.clear();
     }
 
-    private setLocalData(key, data) {
-        this.storage.set(`${API_STORAGE_KEY}-${key}`, data);
+    getSignaturesStored() {
+        this.storageService.getLocalData('signatures').then((data) => {
+            this.signatures = data;
+        });
     }
 
 

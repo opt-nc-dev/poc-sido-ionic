@@ -31,4 +31,17 @@
         </ion-col>
         <ion-col></ion-col>
     </ion-row>
+    <ion-row>
+        <!-- List of Text Items -->
+        <ion-list>
+            <ion-item *ngFor="let signature of signatures">
+                <ion-thumbnail slot="start">
+                    <img [src]="signature.signature"/>
+                </ion-thumbnail>
+                <ion-label>
+                    <h3> {{signature.date | date:'mediumDate'}}</h3>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-row>
 </ion-content>
