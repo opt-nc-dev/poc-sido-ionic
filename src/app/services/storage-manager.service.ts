@@ -6,7 +6,7 @@ const API_STORAGE_KEY = 'specialkey';
 @Injectable({
     providedIn: 'root'
 })
-export class StorageService {
+export class StorageManagerService {
 
     constructor(private storage: Storage) {
     }
@@ -36,4 +36,9 @@ export class StorageService {
             return this.storage.set(`${API_STORAGE_KEY}-${key}`, storedData);
         });
     }
+
+    emptyStorage(key) {
+        this.storage.remove(`${API_STORAGE_KEY}-${key}`);
+    }
 }
+

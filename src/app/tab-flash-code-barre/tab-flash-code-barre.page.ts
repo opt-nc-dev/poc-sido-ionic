@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PhotoService} from '../services/photo.service';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
-import {StorageService} from '../services/storage.service';
+import {StorageManagerService} from '../services/storage-manager.service';
 
 @Component({
     selector: 'app-tab2',
@@ -13,7 +13,7 @@ export class TabFlashCodeBarrePage implements OnInit {
 
     constructor(public photoService: PhotoService,
                 private barcodeScanner: BarcodeScanner,
-                private storageService: StorageService) {
+                private storageService: StorageManagerService) {
     }
 
     ngOnInit() {

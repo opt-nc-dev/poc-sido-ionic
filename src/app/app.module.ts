@@ -11,7 +11,6 @@ import {IonicStorageModule} from '@ionic/storage';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {HttpClientModule} from '@angular/common/http';
-import {Network} from '@ionic-native/network/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -27,7 +26,6 @@ import {Network} from '@ionic-native/network/ngx';
         SplashScreen,
         Camera,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-        Network
     ],
     bootstrap: [AppComponent]
 })

@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {NavController, ToastController} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-import {StorageService} from '../services/storage.service';
+import {StorageManagerService} from '../services/storage-manager.service';
 
 @Component({
     selector: 'app-tab3',
@@ -17,7 +17,7 @@ export class TabSignaturePage {
     constructor(public navController: NavController,
                 public storage: Storage,
                 public toastCtrl: ToastController,
-                private storageService: StorageService
+                private storageService: StorageManagerService
     ) {
     }
 
