@@ -50,9 +50,7 @@ jobs:
             run: yarn install
         # Lancement des tests backend
           - name: Run backend test
-            run: |
-                chmod +x gradlew
-                ./gradlew clean test integrationTest -x webpack
+            run: gradle clean test integrationTest -x webpack
         # Lancement des tests frontend
           - name: Run frontend test
             run: yarn run test
@@ -63,13 +61,13 @@ jobs:
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             run: |
                 if [ -n $SONAR_TOKEN ]; then
-                    ./gradlew sonarqube --no-daemon -Dsonar.host.url=https://sonarcloud.io
+                    gradle sonarqube --no-daemon -Dsonar.host.url=https://sonarcloud.io
                 else
                     echo No SONAR_TOKEN, skipping...
                 fi
         # Package du livrable, ici au format jar, mais peut être fait en war avec la commande ./gradlew bootWar...
           - name: Package application
-            run: ./gradlew bootJar -Pprod -x test -x integrationTest
+            run: gradle bootJar -Pprod -x test -x integrationTest
         # Publication du livrable dans github package.
           - name: Publish to GitHub Packages
             run: gradle publish

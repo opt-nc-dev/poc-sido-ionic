@@ -44,9 +44,7 @@ jobs:
       - name: Install node.js packages
         run: yarn install
       - name: Run backend test
-        run: |
-          chmod +x gradlew
-          ./gradlew clean test integrationTest -x webpack
+        run: gradle clean test integrationTest -x webpack
       - name: Run frontend test
         run: yarn run test
       - name: Analyze code with SonarQube
@@ -55,9 +53,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           if [ -n $SONAR_TOKEN ]; then
-              ./gradlew sonarqube --no-daemon -Dsonar.host.url=https://sonarcloud.io
+              gradle sonarqube --no-daemon -Dsonar.host.url=https://sonarcloud.io
           else
               echo No SONAR_TOKEN, skipping...
           fi
       - name: Package application
-        run: ./gradlew bootJar -Pprod -x test -x integrationTest
+        run: gradle bootJar -Pprod -x test -x integrationTest
